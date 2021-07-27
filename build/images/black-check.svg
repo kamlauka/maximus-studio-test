@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g id="Сгруппировать_8" data-name="Сгруппировать 8" transform="translate(-1020 -359)">
+        <g id="Прямоугольник_скругл._углы_2_копия_4_copy" data-name="Прямоугольник, скругл. углы 2 копия 4 copy" transform="translate(1022 361)" stroke="#fff" stroke-linejoin="round" stroke-width="2">
+            <circle cx="8" cy="8" r="8" stroke="none"/>
+            <circle cx="8" cy="8" r="9" fill="none"/>
+        </g>
+        <path id="check" d="M12,6,6.5,11.5,4,9" transform="translate(1022 360)" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+</svg>

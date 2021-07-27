@@ -1,0 +1,283 @@
+@import "../../node_modules/normalize.css/normalize";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+/*colors variables*/
+$mainColor: #9B119E;
+$mainColor_hover: #AA4AAC;
+$mainColor_active: #6D006F;
+$grey: #DDE0E5;
+$white: #fff;
+$black: #000;
+/*colors variables END*/
+
+/*mixins*/
+/*FONTS*/
+@mixin normal-font {
+  font-size: 20px;
+}
+@mixin small-font {
+  font-size: 16px;
+}
+@mixin bold-font {
+  font-weight: 500;
+}
+
+/**/
+@mixin animation {
+  transition: all .8s ease;
+}
+
+/*BORDERS*/
+@mixin main-border {
+  border: 1px solid $grey;
+}
+@mixin round-purple-border-hover {
+  &:hover {
+    border-color: $mainColor;
+  }
+}
+
+/*ROUNDING CONTAINERS*/
+@mixin round-ctn {
+  width: 60px;
+  height: 60px;
+  @include main-border;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/*mixins END*/
+
+html {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.text-mini {
+  font-size: 16px;
+
+  &_grey {
+    color: $grey;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+.line {
+  @include main-border;
+}
+
+.cnt {
+  max-width: 1408px;
+  margin: auto;
+
+  @media (max-width:768px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (max-width:1440px) {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+}
+
+.list {
+  padding-left: 20px;
+  @include normal-font;
+  line-height: 32px;
+  &__item {
+    list-style-image: url("../images/red-check.svg");
+  }
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  @include animation;
+  &:hover {
+    color: $mainColor;
+  }
+}
+
+.breadcrumbs {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 15px;
+    &:after {
+      content: url("../images/red-arrow.svg");
+      margin-left: 20px;
+    }
+  }
+}
+
+/*HEADER*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  &__nav-item {
+    @include normal-font;
+    @include bold-font;
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  &__right-btns *:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &__right-btns {
+    display: flex;
+  }
+}
+
+
+.round-btn {
+  @include round-ctn;
+  @include round-purple-border-hover;
+  @include animation;
+  position: relative;
+
+  &__img {
+    position: absolute;
+    top: 19px;
+    left: 19px;
+  }
+  &:hover {
+    color: $mainColor;
+  }
+}
+
+/*HEADER END*/
+
+/*PRODUCT CARD*/
+.availability {
+  margin-left: 2.485%;
+  &:before {
+    content: url("../images/green-check.svg");
+    margin-right: 9px;
+  }
+}
+.product-card {
+  display: flex;
+  margin-bottom: 85px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+
+  &__image {
+    width: 62.5%;
+    object-fit: cover;
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+  &__info {
+    margin-left: 5.68%;
+    @media (max-width: 1000px) {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+}
+
+.product-info {
+  &__title {
+    margin-top: 12px;
+    margin-bottom: 17px;
+    font-size: 32px;
+    @include bold-font;
+  }
+
+  &__price {
+    font-size: 48px;
+    @include bold-font;
+  }
+
+  &__choice-group {
+    margin: 32px 0;
+  }
+}
+
+.product-color {
+  &__label {
+    margin: 0;
+  }
+
+}
+
+.round-choice {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 43px;
+  height: 43px;
+  border: 2px solid $white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: $grey;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+  &__radio:checked {
+    &:after {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: black;
+    }
+
+  }
+
+  &:hover {
+    &:before {
+      content: '';
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 3px solid $black;
+    }
+  }
+}
+
+.like {
+  @include round-ctn;
+  background: white;
+
+  &:hover {
+    &__image {
+      background: white;
+    }
+    background: $mainColor_hover;
+  }
+
+  &:active {
+    &__image {
+      background: white;
+    }
+    background: $mainColor_active;
+  }
+
+  top__cartb{}
+}
+/*PRODUCT CARD END*/
