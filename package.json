@@ -8,16 +8,24 @@
     "browser-sync": "^2.27.4",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-sass": "^5.0.0",
     "sass": "^1.36.0"
   },
   "devDependencies": {
-    "gulp-sass": "^5.0.0",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
+    "browserify": "^17.0.0",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type": "module"
   },
   "keywords": [],
   "author": "",

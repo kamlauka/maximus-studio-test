@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 /*colors variables*/
-$mainColor: #9B119E;
-$mainColor_hover: #AA4AAC;
-$mainColor_active: #6D006F;
+$main-color: #9B119E;
+$main-color_hover: #AA4AAC;
+$main-color_active: #6D006F;
 $grey: #DDE0E5;
+$dark-grey: #959AA2;
 $white: #fff;
 $black: #000;
 /*colors variables END*/
@@ -33,7 +34,7 @@ $black: #000;
 }
 @mixin round-purple-border-hover {
   &:hover {
-    border-color: $mainColor;
+    border-color: $main-color;
   }
 }
 
@@ -60,7 +61,7 @@ body {
   font-size: 16px;
 
   &_grey {
-    color: $grey;
+    color: $dark-grey;
   }
 }
 
@@ -100,7 +101,7 @@ body {
   text-decoration: none;
   @include animation;
   &:hover {
-    color: $mainColor;
+    color: $main-color;
   }
 }
 
@@ -128,23 +129,52 @@ body {
   padding-top: 25px;
   padding-bottom: 25px;
 
+  &__nav {
+    flex: 1 1 30%;
+  }
+
   &__nav-item {
+    flex: 1 1 25%;
     @include normal-font;
     @include bold-font;
     &:not(:last-child) {
       margin-right: 50px;
     }
+
+    @media (max-width: 1070px) {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      font-size: 14px;
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__logo-cnt {
+    flex: 1 1 40%;
+    text-align: center;
+    margin: auto;
   }
 
   &__right-btns *:not(:last-child) {
     margin-right: 30px;
+
+    @media (max-width: 768px) {
+      margin-right: 10px;
+    }
   }
 
   &__right-btns {
+    flex: 1 1 30%;
     display: flex;
+    justify-content: flex-end;
   }
 }
-
 
 .round-btn {
   @include round-ctn;
@@ -152,16 +182,37 @@ body {
   @include animation;
   position: relative;
 
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
   &__img {
     position: absolute;
     top: 19px;
     left: 19px;
+
+    @media (max-width: 768px) {
+      top: 11px;
+      left: 10px;
+      width: 45%;
+    }
   }
   &:hover {
-    color: $mainColor;
+    color: $main-color;
   }
 }
 
+.logo {
+  @media (max-width: 450px) {
+    width: 100%;
+    text-align: center;
+
+    &__image {
+      width: 77%;
+      max-width: 110px;
+    }
+  }
+}
 /*HEADER END*/
 
 /*PRODUCT CARD*/
@@ -185,6 +236,9 @@ body {
     object-fit: cover;
     @media (max-width: 1000px) {
       width: 100%;
+    }
+    @media (max-width: 768px) {
+      margin-top: 20px;
     }
   }
   &__info {
@@ -213,6 +267,15 @@ body {
   &__choice-group {
     margin: 32px 0;
   }
+
+  &__to-cart {
+    width: 18.9vw;
+    margin-right: 1vw;
+
+    @media (max-width: 1000px) {
+      width: 83%;
+    }
+  }
 }
 
 .product-color {
@@ -235,49 +298,181 @@ body {
   background: $grey;
   cursor: pointer;
   &:not(:last-child) {
-    margin-right: 12px;
-  }
-  &__radio:checked {
-    &:after {
-      content: '';
-      display: block;
-      width: 16px;
-      height: 16px;
-      background: black;
-    }
-
+    margin-right: 20px;
   }
 
-  &:hover {
-    &:before {
-      content: '';
-      position: absolute;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 3px solid $black;
-    }
+@mixin border-around-choise {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -5.38px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid $black;
+}
+
+  &> &__radio:hover + &__elem-check:before {
+    @include border-around-choise;
+  }
+
+  &> &__radio:checked + &__elem-check:before {
+    @include border-around-choise;
+  }
+
+  &> &__radio:checked + &__elem-check:after {
+    content: "";
+    position: absolute;
+    top: 30px;
+    right: -4px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/black-check.svg);
+    background-size: 100%;
   }
 }
 
 .like {
+  display: inline-block;
+  position: relative;
   @include round-ctn;
   background: white;
+  vertical-align: middle;
+
+
+  &__image {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
 
   &:hover {
     &__image {
       background: white;
     }
-    background: $mainColor_hover;
+
+    background: $main-color_hover;
   }
 
   &:active {
     &__image {
       background: white;
     }
-    background: $mainColor_active;
+
+    background: $main-color_active;
+  }
+}
+
+.table-size {
+  position: relative;
+  margin-left: 80px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed $main-color;
+  cursor: pointer;
+  @include animation;
+  &:hover {
+    color: $main-color;
   }
 
-  top__cartb{}
+  &:before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    background: url(../images/ruler.svg) center no-repeat;
+  }
 }
+
+.select {
+
+}
+
+.new-select {
+  position: relative;
+  border: 1px solid #ced4da;
+  padding: 10px 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.new-select__list {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  width: 100%;
+  z-index: 2;
+  background: #fff;
+  user-select: none;
+}
+
+.new-select__list.on {
+  display: block;
+}
+
+.new-select__item span {
+  display: block;
+  padding: 10px 15px;
+}
+
+.new-select__item span:hover {
+  color: #12b223;
+}
+
+.new-select:after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  background: url('path-to-image') no-repeat right center / cover;
+  opacity: 0.6;
+
+  -webkit-transition: all .27s ease-in-out;
+  -o-transition: all .27s ease-in-out;
+  transition: all .27s ease-in-out;
+
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.new-select.on:after {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.to-cart {
+    padding: 20px 0;
+    border: none;
+    border-radius: 50px;
+    color: $white;
+    background-color: $main-color;
+
+    &__img{
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+
+    &:hover {
+      background-color: $main-color_hover;
+    }
+
+    &:active {
+      background-color: $main-color_active;
+    }
+  }
+
 /*PRODUCT CARD END*/

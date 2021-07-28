@@ -13,7 +13,10 @@
             <a class="header__nav-item link" href="#">Женщинам</a>
             <a class="header__nav-item link" href="#">Мужчинам</a>
         </nav>
-        <a href="" class="logo"><img src="images/logo.svg"></a>
+        <div class="header__logo-cnt">
+            <a href="" class="logo"><img class="logo__image" src="images/logo.svg"></a>
+        </div>
+
         <div class="header__right-btns">
             <div class="round-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="round-btn__img"  width="21.414" height="21.414" viewBox="0 0 21.414 21.414">
@@ -35,9 +38,9 @@
     </header>
     <div class="line"></div>
     <nav class="breadcrumbs cnt">
-        <a href="#" class="breadcrumbs__item link">Женщинам</a>
-        <a href="#" class="breadcrumbs__item link">Платья</a>
-        <span class="breadcrumbs__item">Betrendy</span>
+        <a href="#" class="breadcrumbs__item text-mini link">Женщинам</a>
+        <a href="#" class="breadcrumbs__item text-mini link">Платья</a>
+        <span class="breadcrumbs__item text-mini text-mini_grey ">Betrendy</span>
     </nav>
 
     <section class="product-card cnt">
@@ -46,22 +49,19 @@
 
             <h1 class="product-info__title">Пудровое платье</h1>
 
-            <span class="text-mini_grey">Код товара: </span><span class="text-mini_grey product-code-din">13008</span>
+            <span class="text-mini text-mini_grey">Код товара: </span><span class="text-mini text-mini_grey product-code-din">13008</span>
             <span class="text-mini availability">В наличии</span>
 
             <form action="buy" class="buy-product">
             <div class="choice-group product-info__choice-group">
-                <p class="choise-group__label">Цвет:</p>
-                <label class="round-choice"><input type="radio" name="yellow" class="hidden radio"></label>
-                <label class="round-choice"><input type="radio" name="grey" class="hidden radio"></label>
-                <label class="product-color__item round-choice"><input type="radio" name="green" class="hidden radio"></label>
+                <p class="choise-group__label text-mini">Цвет:</p>
+                <label class="round-choice color"><input type="radio" name="color" class="hidden round-choice__radio" checked><span class="round-choice__elem-check"></span></label><label class="round-choice color"><input type="radio" name="color" class="hidden round-choice__radio"><span class="round-choice__elem-check"></span></label><label class="product-color__item round-choice color"><input type="radio" name="color" class="hidden round-choice__radio"><span class="round-choice__elem-check"></span></label>
             </div>
 
             <div class="choice-group product-info__choice-group">
-                <p class="choice-group __label">Размер:</p>
-                <label class="product-size__item round-choice"><input type="radio" name="S" class="hidden round-choice__radio"> S</label>
-                <label class="product-size__item round-choice"><input type="radio" name="M" class="hidden round-choice__radio"> M</label>
-                <label class="product-size__item round-choice"><input type="radio" name="XL" class="hidden round-choice__radio"> XL</label>
+                <p class="choice-group __label text-mini">Размер:</p>
+                <!-- Слитное написание - один из способов убрать пробел между инлайн элементами -->
+                <label class="product-size__item round-choice"><input type="radio" name="size" class="hidden round-choice__radio"><span class="round-choice__elem-check">S</span></label><label class="product-size__item round-choice"><input type="radio" name="size" class="hidden round-choice__radio" checked><span class="round-choice__elem-check">M</span></label><label class="product-size__item round-choice"><input type="radio" name="size" class="hidden round-choice__radio"> <span class="round-choice__elem-check">XL</span></label>
             </div>
 
             <select class="select">
@@ -72,15 +72,16 @@
             </select>
 
             <p>
-                <label><input type="checkbox" name="can-be-wrong"> Могу ошибаться </label>
+                <label class="checkbox"><input class="hidden" type="checkbox" name="can-be-wrong"> <span>Могу ошибаться</span> </label>
                 <span class="table-size">Таблица размеров</span>
             </p>
 
             <p class="product-info__price"><span class="product-price-din">1550</span>грн</p>
 
-            <button class="to-cart"><img src="images/cart.svg" alt="В корзину">В корзину</button>
-            <button class="like"><img src="images/love.svg" alt="В избранное"></button>
-
+            <button class="product-info__to-cart to-cart"><img class="to-cart__img" src="images/cart-white.svg" alt="В корзину">В корзину</button>
+      <label class="like"><input type="checkbox" class="hidden"><svg class="like__image" xmlns="http://www.w3.org/2000/svg" width="22" height="19.858" viewBox="0 0 22 19.858">
+          <path d="M7,3A4.975,4.975,0,0,0,2,7.95c0,2.207.875,7.445,9.488,12.74a.985.985,0,0,0,1.024,0C21.125,15.4,22,10.157,22,7.95A4.975,4.975,0,0,0,17,3c-2.761,0-5,3-5,3S9.761,3,7,3Z" transform="translate(-1 -2)" fill="none" stroke="#959aa2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </svg></label>
         </form>
 
             <ul class="list">
@@ -91,5 +92,6 @@
         </div>
     </section>
     <div class="line"></div>
+<script  src="js/bundle.js"></script>
 </body>
 </html>
