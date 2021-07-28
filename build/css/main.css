@@ -761,6 +761,19 @@ body {
     height: 40px;
   }
 }
+.round-btn__counter {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #9B119E;
+  text-align: center;
+  font-size: 13px;
+  line-height: 20px;
+  color: white;
+}
 .round-btn__img {
   position: absolute;
   top: 19px;
@@ -847,6 +860,12 @@ body {
 
 .slick-next {
   right: 30px;
+}
+.slick-next:before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
   background-image: url("../images/black-arrow.svg") !important;
   background-repeat: no-repeat;
   background-position: center;
@@ -857,18 +876,18 @@ body {
   -ms-transform-origin: center;
   transform-origin: center;
 }
-.slick-next:before {
-  content: "";
-}
 
 .slick-prev {
   left: 30px;
-  background-image: url("../images/black-arrow.svg") !important;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .slick-prev:before {
   content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/black-arrow.svg") !important;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .product-card-image__image {
@@ -958,38 +977,6 @@ body {
   background-size: 100%;
 }
 
-.like {
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid #DDE0E5;
-  background: white;
-  vertical-align: middle;
-}
-.like__image {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-.like:hover {
-  background: #AA4AAC;
-}
-.like:hover__image {
-  background: white;
-}
-.like:active {
-  background: #6D006F;
-}
-.like:active__image {
-  background: white;
-}
-
 .table-size {
   position: relative;
   margin-left: 80px;
@@ -1013,10 +1000,16 @@ body {
   background: url(../images/ruler.svg) center no-repeat;
 }
 
+.select {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
 .new-select {
   position: relative;
   border: 1px solid #ced4da;
-  padding: 10px 15px;
+  padding: 20px 24px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1045,7 +1038,7 @@ body {
 
 .new-select__item span {
   display: block;
-  padding: 10px 15px;
+  padding: 20px 24px;
 }
 
 .new-select__item span:hover {
@@ -1092,6 +1085,38 @@ body {
 }
 .to-cart:active {
   background-color: #6D006F;
+}
+
+.like {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #DDE0E5;
+  background: white;
+  vertical-align: middle;
+}
+.like__image {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.like:hover {
+  background: #AA4AAC;
+}
+.like:hover__image {
+  background: white;
+}
+.like:active {
+  background: #6D006F;
+}
+.like:active__image {
+  background: white;
 }
 
 /*PRODUCT CARD END*/

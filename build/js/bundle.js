@@ -13583,9 +13583,9 @@ arguments[4][1][0].apply(exports,arguments)
 let $ = require('jQuery');
 // let slick = require('slick-carousel');
 let slick = require('slick-carousel-browserify');
-let productColor = ['#E2AA52', '#D2C9D1', '#B4CEA7'];
-let productSize = ['S', 'M', 'XL'];
-
+const productColor = ['#E2AA52', '#D2C9D1', '#B4CEA7'];
+const productSize = ['S', 'M', 'XL'];
+let countProduct = 0;
 
 $(document).ready(function(){
     slick($('.product-card-image'), {
@@ -13594,13 +13594,19 @@ $(document).ready(function(){
         speed: 500
     });
 
-    $('.color').each(function(index,) {
+    $(".to-cart").click(function(){
+        countProduct = ++countProduct;
+        $(".round-btn__counter").css('display', 'inline-block');
+        $(".round-btn__counter").text(countProduct);
+    });
+
+    $('.color').each(function(index) {
         $(this).css('background-color', productColor[index]);
     });
 
-    // $('.color').each(function(index,) {
-    //     $(this).css('background-color', productColor[index]);
-    // });
+    $('.size').each(function(index) {
+        $(this).text(productSize[index]);
+    });
 
     $('.select').each(function() {
         const _this = $(this),
