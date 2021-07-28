@@ -9,7 +9,7 @@ function styles() {
   return gulp.src('src/scss/*.scss')
       .pipe(sass().on('error', sass.logError))
       .pipe(autoprefixer({
-          browsers: ['last 5 versions',
+          overrideBrowserslist: ['last 5 versions',
               '> 5%'],
           cascade: false
       }))

@@ -1,10 +1,16 @@
 let $ = require('jQuery');
-let slick = require('slick-carousel');
+// let slick = require('slick-carousel');
+let slick = require('slick-carousel-browserify');
 let productColor = ['#E2AA52', '#D2C9D1', '#B4CEA7'];
 let productSize = ['S', 'M', 'XL'];
 
 
 $(document).ready(function(){
+    slick($('.product-card-image'), {
+        dots: false,
+        arrows:true,
+        speed: 500
+    });
 
     $('.color').each(function(index,) {
         $(this).css('background-color', productColor[index]);

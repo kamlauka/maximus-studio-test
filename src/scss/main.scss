@@ -1,4 +1,6 @@
 @import "../../node_modules/normalize.css/normalize";
+@import "../../node_modules/slick-carousel/slick/slick";
+@import "../../node_modules/slick-carousel/slick/slick-theme";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 /*colors variables*/
@@ -42,7 +44,6 @@ $black: #000;
 @mixin round-ctn {
   width: 60px;
   height: 60px;
-  @include main-border;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -176,8 +177,10 @@ body {
   }
 }
 
+
 .round-btn {
   @include round-ctn;
+  @include main-border;
   @include round-purple-border-hover;
   @include animation;
   position: relative;
@@ -233,12 +236,12 @@ body {
 
   &__image {
     width: 62.5%;
-    object-fit: cover;
     @media (max-width: 1000px) {
       width: 100%;
+      margin-bottom: 20px;
     }
     @media (max-width: 768px) {
-      margin-top: 20px;
+      margin: 20px 0;
     }
   }
   &__info {
@@ -248,7 +251,40 @@ body {
       width: 100%;
     }
   }
+}
 
+.slick-arrow {
+  @include round-ctn;
+  z-index: 10;
+  background-color: $white!important;
+}
+
+.slick-next {
+  right: 30px;
+  background-image: url("../images/black-arrow.svg")!important;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
+  transform-origin: center;
+  &:before {
+    content: "";
+  }
+}
+
+.slick-prev {
+  left: 30px;
+  background-image: url("../images/black-arrow.svg")!important;
+  background-repeat: no-repeat;
+  background-position: center;
+  &:before {
+    content: "";
+  }
+}
+
+.product-card-image {
+  &__image {
+    object-fit: cover;
+  }
 }
 
 .product-info {
@@ -337,6 +373,7 @@ body {
   display: inline-block;
   position: relative;
   @include round-ctn;
+  @include main-border;
   background: white;
   vertical-align: middle;
 
